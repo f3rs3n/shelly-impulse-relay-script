@@ -1,6 +1,6 @@
 # Shelly Impulse Relay Control Script
 
-This repository contains a custom script for **Shelly 3rd generation or newer devices with scripting support**, designed to integrate with existing Siemens 5TT4102-0 impulse (step-by-step) relays. The primary goal is to enable smart control via the Shelly app while preserving the manual override functionality of physical buttons and ensuring a failsafe mechanism in case of Shelly device failure.
+This repository contains a custom script for **Shelly 3rd generation or newer devices with scripting support**, designed to integrate with existing **impulse (step-by-step) relays**. The primary goal is to enable smart control via the Shelly app while preserving the manual override functionality of physical buttons and ensuring a failsafe mechanism in case of Shelly device failure.
 
 ## Project Overview
 
@@ -30,13 +30,13 @@ This setup ensures:
 
 ## Setup and Configuration
 
-To use this script, you need a **Shelly 3rd generation or newer device with scripting support** (e.g., Shelly Pro 4PM, or other models that support scripting) and Siemens 5TT4102-0 impulse relays. Please consult your device's documentation to confirm scripting capabilities.
+To use this script, you need a **Shelly 3rd generation or newer device with scripting support** (e.g., Shelly Pro 4PM, or other models that support scripting) and **compatible impulse (step-by-step) relays** (e.g., Siemens 5TT4102-0). Please consult your device's documentation to confirm scripting capabilities and relay compatibility.
 
 ### Shelly Device Prerequisites:
 1.  **Virtual Booleans:** Create 4 "Virtual Boolean" components on your compatible Shelly device (e.g., Shelly Pro 4PM) with IDs 200, 201, 202, 203. These act as the user interface (ON/OFF buttons) for each channel in the Shelly app.
 2.  **Detached Mode:** Configure physical channels (0-3) in "Detached Mode". This ensures the Shelly's internal switch logic doesn't interfere with the impulse relay.
 3.  **Toggle Switch Input:** Set inputs (0-3) to "Toggle Switch".
-4.  **Auto-OFF:** Configure outputs (0-3) with "Auto-OFF" set to 0.5 seconds. This provides the necessary impulse to trigger the Siemens relays.
+4.  **Auto-OFF:** Configure outputs (0-3) with "Auto-OFF" set to 0.5 seconds. This provides the necessary impulse to trigger the relays.
 
 ### Script Configuration (`shelly_relay_script.js`):
 
@@ -56,7 +56,7 @@ let CHANNELS_TO_RUN = {
 1.  **Upload the script:** Upload the `shelly_relay_script.js` file to your compatible Shelly device via its web interface.
 2.  **Enable Scripting:** Ensure scripting is enabled on your Shelly device.
 3.  **Apply Prerequisites:** Configure the Shelly device according to the "Shelly Device Prerequisites" section above.
-4.  **Wiring:** Connect your compatible Shelly device to the Siemens relays and physical buttons as described in the "Architecture and Wiring" section.
+4.  **Wiring:** Connect your compatible Shelly device to the impulse relays and physical buttons as described in the "Architecture and Wiring" section.
 
 ## Development Notes
 
